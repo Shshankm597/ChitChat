@@ -31,7 +31,7 @@ const SignIn  = ()=>{
                localStorage.setItem("jwt",data.token)
                localStorage.setItem("user",JSON.stringify(data.user))
                dispatch({type:"USER",payload:data.user})
-               M.toast({html:"signedin success",classes:"#43a047 green darken-1"})
+               M.toast({html:"SignIn Successful",classes:"#43a047 green darken-1"})
                history.push('/')
            }
         }).catch(err=>{
@@ -60,7 +60,7 @@ const SignIn  = ()=>{
                 Login
             </button>
             <h5>
-                <Link to="/signup">Dont have an account ?</Link>
+                <Link to="/signup">Don't have an account ?</Link>
             </h5>
     
         </div>

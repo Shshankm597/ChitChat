@@ -71,7 +71,7 @@ const Profile  = ()=>{
            }}>
                <div>
                    <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
-                   src={state?state.pic:"loading"}
+                   src={state?state.pic:"loading"} alt=""
                    />
                  
                </div>
@@ -93,7 +93,7 @@ const Profile  = ()=>{
                 <input type="file" onChange={(e)=>updatePhoto(e.target.files[0])} />
             </div>
             <div className="file-path-wrapper">
-                <input className="file-path validate" type="text" />
+                <input className="validate" type="text" />
             </div>
             </div>
             </div>      
