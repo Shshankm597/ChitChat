@@ -154,7 +154,7 @@ const Home  = ()=>{
                                     e.preventDefault()
                                     makeComment(e.target[0].value,item._id)
                                 }}>
-                                  <input type="text" placeholder="add a comment" />  
+                                  <input type="text" placeholder="add a comment"/>  
                                 </form>
                                 
                             </div>
