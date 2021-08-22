@@ -62,6 +62,8 @@ const SignIn  = ()=>{
             <h5>
                 <Link to="/signup">Don't have an account ?</Link>
             </h5>
+            <h5>User Name: test@gmail.com/sam@gmail.com </h5>
+            <h5>PWD: test@123/sam@123 </h5>
     
         </div>
       </div>
