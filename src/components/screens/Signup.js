@@ -104,9 +104,9 @@ const SignIn  = ()=>{
             >
                 SignUP
             </button>
-            <h5>
+            <p style={{textDecoration: "underline"}}>
                 <Link to="/signin">Already have an account ?</Link>
-            </h5>
+            </p>
              
                
          
