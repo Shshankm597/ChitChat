@@ -1,7 +1,9 @@
-import React,{useContext,useRef,useEffect,useState} from 'react'
-import {Link ,useHistory} from 'react-router-dom'
-import {UserContext} from '../App'
-import M from 'materialize-css'
+import React,{useContext,useRef,useEffect,useState} from 'react';
+import {Link ,useHistory} from 'react-router-dom';
+import {UserContext} from '../App';
+import M from 'materialize-css';
+import '../index.css';
+
 const NavBar = ()=>{
     const  searchModal = useRef(null)
     const [search,setSearch] = useState('')
@@ -14,10 +16,11 @@ const NavBar = ()=>{
      const renderList = ()=>{
        if(state){
            return [
+            <li key="4"><Link to="/myfollowingpost"><i className="material-icons">home</i></Link></li>,
+            <li key="3"><Link to="/create"><i className="material-icons">add_circle_outline</i></Link></li>,
+            <li key="8"><Link to="/"><i className="material-icons">explore</i></Link></li>,
             <li key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black"}}>search</i></li>,
-            <li key="2"><Link to="/profile">Profile</Link></li>,
-            <li key="3"><Link to="/create">Create Post</Link></li>,
-            <li key="4"><Link to="/myfollowingpost">My following Posts</Link></li>,
+            <li key="2"><Link to="/profile"><i className="material-icons">account_circle</i></Link></li>,
             <li  key="5">
              <button className="btn #c62828 red darken-3"
             onClick={()=>{
@@ -34,8 +37,8 @@ const NavBar = ()=>{
            ]
        }else{
          return [
-          <li  key="6"><Link to="/signin">Signin</Link></li>,
-          <li  key="7"><Link to="/signup">Signup</Link></li>
+          <li  key="6"><Link to="/signin">Sign in</Link></li>,
+          <li  key="7"><Link to="/signup">Sign up</Link></li>
          
          ]
        }
@@ -79,11 +82,11 @@ const NavBar = ()=>{
                  return <Link to={item._id !== state._id ? "/profile/"+item._id:'/profile'} onClick={()=>{
                    M.Modal.getInstance(searchModal.current).close()
                    setSearch('')
-                 }}><li className="collection-item">{item.email}</li></Link> 
+                 }}><li className="collection-item">{item.email}</li></Link>
                })}
-               
               </ul>
           </div>
+
           <div className="modal-footer">
             <button className="modal-close waves-effect waves-green btn-flat" onClick={()=>setSearch('')}>close</button>
           </div>

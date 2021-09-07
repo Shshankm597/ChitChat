@@ -38,6 +38,34 @@ const SignIn  = ()=>{
             console.log(err)
         })
     }
+
+    const LoginAsGuest = () => {
+        fetch("https://chitchat-backend.shashankmishra4.repl.co/signin",{
+            method:"post",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                email: "guest@gmail.com",
+                password: "guest@123"
+            })
+        }).then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+           if(data.error){
+              M.toast({html: data.error,classes:"#c62828 red darken-3"})
+           }
+           else{
+               localStorage.setItem("jwt",data.token)
+               localStorage.setItem("user",JSON.stringify(data.user))
+               dispatch({type:"USER",payload:data.user})
+               M.toast({html:"SignIn Successful",classes:"#43a047 green darken-1"})
+               history.push('/')
+           }
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
    return (
       <div className="mycard">
           <div className="card auth-card input-field">
@@ -59,11 +87,20 @@ const SignIn  = ()=>{
             >
                 Login
             </button>
-            <h5>
-                <Link to="/signup">Don't have an account ?</Link>
-            </h5>
-            <p>User Name: test@gmail.com/sam@gmail.com </p>
-            <p>PWD: test@123/sam@123 </p>
+            {console.log(email)}
+            {console.log(password)}
+            <p>OR</p>
+            <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
+            onClick={()=> {
+                setEmail("guest@gmail.com")
+                setPasword("guest@123")
+                LoginAsGuest()}}
+            >
+                Login as Guest
+            </button>
+            <p style={{textDecoration: "underline"}}>
+                <Link to="/signup">Don't have an account? SignUp</Link>
+            </p>
     
         </div>
       </div>
